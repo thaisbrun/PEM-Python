@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+
+{% block content %}
+<h1>Liste d'animaux</h1>
+<ul id="animaux">
+    {% for x in animal %}
+    <li>{{x.nom}}
+        <br>
+        {{x.dureeVie}}
+        <br>
+        {{x.image_url}}
+        <br>
+        {{x.description}}
+        <br>
+        {{x.nombrePattes}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
