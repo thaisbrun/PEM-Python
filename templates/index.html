@@ -1,18 +1,32 @@
 {%extends 'base.html'%}
 
 {% block content %}
+<br>
 <h1>Liste d'animaux</h1>
+<br>
+<br>
+<!-- bouton ajouter un élément -->
+<form action="" method="POST">
+  {% csrf_token %}
+
+  <input type="submit" class="btn btn-success" value="Ajouter"></button>
+</form>
+<br>
+<br>
 <ul id="animaux">
     {% for x in animal %}
-    <li>{{x.nom}}
-        <br>
-        {{x.dureeVie}}
-        <br>
-        {{x.image_url}}
-        <br>
-        {{x.description}}
-        <br>
-        {{x.nombrePattes}}</li>
+    <div class="card mb-1">
+  <img src="{{x.image_url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><h2>{{x.nom}}</h2></h5><br>
+      <p class="card-text"> <h4>Description :</h4> <br> {{x.description}}</p>
+    <p class="card-text"><small class="text-muted"> <b> Durée de vie : </b>{{x.dureeVie}} <b> Nombre de membres :</b> {{x.nombrePattes}}</small></p>
+<!-- boutons modifier et supprimer un élément -->
+      <button type="button" class="btn btn-secondary">Modifier</button>
+      <button type="button" class="btn btn-danger">Supprimer</button>
+  </div>
+    </div>
+    <br>
     {% endfor %}
 </ul>
 
