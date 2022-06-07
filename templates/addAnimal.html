@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+{% block content %}
+<!-- bouton ajouter un élément -->
+<h1> Ajouter un animal</h1>
+  <br>
+  <br>
+{% if submitted %}
+L'animal a été ajouté avec succès !
+{% else %}
+  <form action="" method="POST">
+      {% csrf_token %}
+    {{ form.as_p }}
+  <input type="submit" class="btn btn-success" value="Ajouter"></button>
+</form>
+{% endif %}
+{% endblock %}

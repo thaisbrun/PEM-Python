@@ -5,13 +5,6 @@
 <h1>Liste d'animaux</h1>
 <br>
 <br>
-<!-- bouton ajouter un élément -->
-<form action="" method="POST">
-  {% csrf_token %}
-
-  <input type="submit" class="btn btn-success" value="Ajouter"></button>
-</form>
-<br>
 <br>
 <ul id="animaux">
     {% for x in animal %}
