@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from .forms import AnimalForm
 from .models import Animaux
-
+from .models import Plantes
 def index(request):
     animal = Animaux.objects.all()
-    return render(request, 'index.html', {'animal':animal})
+    plante = Plantes.objects.all()
+    return render(request, 'index.html', {'animal':animal, 'plante':plante})
 
 
 def delete_animal(request, animal_id):
@@ -12,6 +13,12 @@ def delete_animal(request, animal_id):
     animal.delete()
     print("L'animal sélectionné a été supprimé")
     return render(request, 'index.html', {'animal': animal})
+
+def delete_plante(request, plante_id):
+    plante = Plantes.objects.get(pk=plante_id)
+    plante.delete()
+    print("La plante sélectionnée a été supprimée")
+    return render(request, 'index.html', {'plante': plante})
 
 def addAnimal(request):
     submitted = False

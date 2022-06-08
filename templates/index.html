@@ -22,5 +22,25 @@
     <br>
     {% endfor %}
 </ul>
+<br>
+<ul id="plantes">
+    <h1>Liste de plantes</h1>
+    <br>
+    <br>
+    {% for y in plante %}
+    <div class="card mb-1">
+        <img src="{{y.image_url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><h2>{{y.nom}}</h2></h5><br>
+      <p class="card-text"> <h4>Description :</h4> <br> {{y.description}}</p>
+    <p class="card-text"><small class="text-muted"> <b> Nom scientifique : </b>{{y.nomScientifique}}</small></p>
+<!-- boutons modifier et supprimer un élément -->
+      <button type="button" class="btn btn-secondary">Modifier</button>
+      <a href="{% url 'delete-plante' y.id%}" class="btn btn-danger">Supprimer</a>
+  </div>
+    </div>
+    <br>
+    {% endfor %}
+</ul>
 
 {% endblock %}
