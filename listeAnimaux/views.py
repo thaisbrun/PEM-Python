@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import AnimalForm
 from .models import Animaux
 from .models import Plantes
@@ -7,6 +7,15 @@ def index(request):
     plante = Plantes.objects.all()
     return render(request, 'index.html', {'animal':animal, 'plante':plante})
 
+def updateAnimal(request, animal_id):
+    animal = Animaux.objects.get(pk=animal_id)
+    form = AnimalForm(request.POST or None, instance=animal)
+    if form.is_valid():
+        form.save()
+        return redirect('index')
+
+    return render(request, 'updateAnimal.html', {'animal': animal,
+                                                 'form': form})
 
 def delete_animal(request, animal_id):
     animal = Animaux.objects.get(pk=animal_id)

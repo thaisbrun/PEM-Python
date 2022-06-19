@@ -15,8 +15,8 @@
       <p class="card-text"> <h4>Description :</h4> <br> {{x.description}}</p>
     <p class="card-text"><small class="text-muted"> <b> Durée de vie : </b>{{x.dureeVie}} <b> Nombre de membres :</b> {{x.nombrePattes}}</small></p>
 <!-- boutons modifier et supprimer un élément -->
-      <button type="button" class="btn btn-secondary">Modifier</button>
-      <a href="{% url 'delete-animal' x.id%}" class="btn btn-danger">Supprimer</a>
+      <a href="{% url 'updateAnimal' x.id %}" class="btn btn-secondary">Modifier</a>
+      <a href="{% url 'delete-animal' x.id %}" class="btn btn-danger">Supprimer</a>
   </div>
     </div>
     <br>
