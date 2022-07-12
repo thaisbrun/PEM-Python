@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import AnimalForm
+from .forms import PlanteForm
 from .models import Animaux
 from .models import Plantes
 def index(request):
@@ -30,15 +31,7 @@ def delete_plante(request, plante_id):
     return render(request, 'index.html', {'plante': plante})
 
 def addAnimal(request):
-    submitted = False
-    if request.method == "POST":
-        form = AnimalForm(request.POST)
-        if form.is_valid():
-            form.save()
-           # return HttpResponseRedirect('addAnimal.html?submitted=True')
-        else:
-            form = AnimalForm
-            if 'submitted' in request.GET:
-                submitted = True
+   return render(request, 'addAnimal.html', {})
 
-        return render(request, 'addAnimal.html', {'form':form, 'submitted':submitted})
+def addPlantes(request):
+    return render(request, 'addPlantes.html',{})
